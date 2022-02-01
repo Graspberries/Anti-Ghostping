@@ -12,9 +12,9 @@ async def on_message_delete(message):
 	if message.mentions or message.role_mentions or message.mention_everyone:
 		emb = diskord.Embed(title = f"{message.author} caught in 4K", description = f"**Deleted message:** \n{message.content}", color = diskord.Colour.blue(), timestamp = datetime.datetime.utcnow())
 		if message.type == diskord.MessageType.reply:
-			emb.set_footer(text = "Reply Ghostping", icon_url = message.author.avatar.url)
+			emb.set_footer(text = "Reply Ghostping", icon_url = message.author.avatar_url)
 		else:
-			emb.set_footer(text = "Normal Ghostping", icon_url = message.author.avatar.url)
+			emb.set_footer(text = "Normal Ghostping", icon_url = message.author.avatar_url)
 		await message.channel.send(embed = emb)
 	if message.embeds and "caught in 4K" in message.embeds[0].title:
 		print(f"{message.embeds}\n\n{message.embeds[0].title}")
